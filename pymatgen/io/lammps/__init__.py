@@ -1,4 +1,3 @@
 """
 IO for LAMMPS
 """
-
