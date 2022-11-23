@@ -4,11 +4,13 @@
 """
 Input sets for LAMMPS
 """
+
+from __future__ import annotations
+
 import logging
 import os
 from pathlib import Path
 from string import Template
-from typing import Dict, List
 
 from monty.io import zopen
 
@@ -53,7 +55,7 @@ class LammpsInputSet(InputSet):
 
         super().__init__(inputs={"in.lammps": self.inputfile, "system.data": self.data})
 
-    def get_inputs(self) -> Dict[str, str | LammpsInputFile]:  # pylint: disable=E1131
+    def get_inputs(self) -> dict[str, str | LammpsInputFile]:  # pylint: disable=E1131
         """
         Generate a dictionary of one or more input files to be written. Keys
         are filenames, values are the contents of each file.
@@ -147,7 +149,7 @@ class LammpsAqueousSet(InputGenerator):
     Yields a LammpsInputSet tailored for simulating aqueous electrolytes
     """
 
-    def get_input_set(self, mols: List, numbers: List[int]) -> LammpsInputSet:  # type: ignore
+    def get_input_set(self, mols: list, numbers: list[int]) -> LammpsInputSet:  # type: ignore
         """
         Generate a LammpsInputSet tailored for simulating aqueous electrolytes
 
